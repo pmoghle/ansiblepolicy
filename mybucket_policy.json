@@ -6,10 +6,12 @@
             "Sid": "s3permissions",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::648981955952:user/iamuser"
+                "AWS": "arn:aws:s3:::${params.BUCKET_NAME}/${params.IAM_USER}"
             },
             "Action": "s3:*",
-            "Resource": "arn:aws:s3:::dmcobkt/*.",
+            "Resource": 
+             "arn:aws:s3:::${params.BUCKET_NAME}/${params.IAM_USER}"
+             "arn:aws:s3:::${params.BUCKET_NAME}/${params.IAM_USER}/*"
             "Condition": {
                 "IpAddress": {
                     "aws:SourceIp": "103.24.125.18"
